@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:type="TaskPaneApp">
+  <Id>12345678-abcd-4321-abcd-1234567890ab</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Your Name or Company</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="LEO - Document Analyzer"/>
+  <Description DefaultValue="Analyze your document’s ease of learning."/>
+  <IconUrl DefaultValue="https://your-icon-url-here.com/icon.png"/>
+  <SupportUrl DefaultValue="https://your-support-url.com"/>
+
+  <Hosts>
+    <Host Name="Document" />
+  </Hosts>
+
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://b076bc07-321b-4b34-a581-2898aa99a5af-00-2w68ymeuix9va.kirk.replit.dev/"/>
+  </DefaultSettings>
+
+  <Permissions>ReadWriteDocument</Permissions>
+</OfficeApp>
