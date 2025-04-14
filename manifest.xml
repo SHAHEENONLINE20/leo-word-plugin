@@ -1,23 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" 
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
            xsi:type="TaskPaneApp">
-  <Id>12345678-abcd-4321-abcd-1234567890ab</Id>
-  <Version>1.0.0.0</Version>
-  <ProviderName>Your Name or Company</ProviderName>
-  <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="LEO - Document Analyzer"/>
-  <Description DefaultValue="Analyze your document’s ease of learning."/>
-  <IconUrl DefaultValue="https://your-icon-url-here.com/icon.png"/>
-  <SupportUrl DefaultValue="https://your-support-url.com"/>
 
+  <Id>[YOUR-GUID-HERE]</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Shaheen Ara Ansari</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="LEO - Learning Engine Optimization"/>
+  <Description DefaultValue="Analyze and rate enterprise documents based on ease of learning using NLP."/>
+  <IconUrl DefaultValue="https://yourdomain.com/assets/icons/leo-64.png"/>
+  <SupportUrl DefaultValue="https://yourdomain.com/support"/>
+  
   <Hosts>
-    <Host Name="Document" />
+    <Host Name="Document"/>
   </Hosts>
 
+  <Requirements>
+    <Sets DefaultMinVersion="1.1">
+      <Set Name="WordApi" />
+    </Sets>
+  </Requirements>
+
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://b076bc07-321b-4b34-a581-2898aa99a5af-00-2w68ymeuix9va.kirk.replit.dev/"/>
+    <SourceLocation DefaultValue="https://yourdomain.com/taskpane.html"/>
   </DefaultSettings>
 
   <Permissions>ReadWriteDocument</Permissions>
+
+  <WebApplicationInfo>
+    <Id>[AZURE-AD-CLIENT-ID]</Id>
+    <Resource>api://yourdomain.com/leo</Resource>
+    <Scopes>
+      <Scope>Files.ReadWrite</Scope>
+      <Scope>User.Read</Scope>
+    </Scopes>
+  </WebApplicationInfo>
+
+  <VersionOverrides Version="1.0">
+    <Hosts>
+      <Host xsi:type="Document">
+        <DesktopFormFactor>
+          <FunctionFile resid="functionFile" />
+          <ExtensionPoint xsi:type="MessageReadCommandSurface">
+            <OfficeTab id="TabHome">
+              <Group id="msgReadGroup">
+                <Label resid="groupLabel"/>
+                <Icon>
+                  <bt:Image size="16" resid="icon16"/>
+                  <bt:Image size="32" resid="icon32"/>
+                  <bt:Image size="80" resid="icon80"/>
+                </Icon>
+                <Control xsi:type="Button" id="msgReadButton">
+                  <Label resid="taskpaneButtonLabel"/>
+                  <Supertip>
+                    <Title resid="taskpaneButtonTitle"/>
+                    <Description resid="taskpaneButtonDesc"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="icon16"/>
+                    <bt:Image size="32" resid="icon32"/>
+                    <bt:Image size="80" resid="icon80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="taskpaneUrl"/>
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+
+    <Resources>
+      <bt:Images>
+        <bt:Image id="icon16" DefaultValue="https://yourdomain.com/assets/icons/leo-16.png"/>
+        <bt:Image id="icon32" DefaultValue="https://yourdomain.com/assets/icons/leo-32.png"/>
+        <bt:Image id="icon80" DefaultValue="https://yourdomain.com/assets/icons/leo-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="taskpaneUrl" DefaultValue="https://yourdomain.com/taskpane.html"/>
+        <bt:Url id="functionFile" DefaultValue="https://yourdomain.com/functions.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="groupLabel" DefaultValue="LEO Tools"/>
+        <bt:String id="taskpaneButtonLabel" DefaultValue="Open LEO"/>
+        <bt:String id="taskpaneButtonTitle" DefaultValue="Open LEO Plugin"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="taskpaneButtonDesc" DefaultValue="Launch the LEO plugin to analyze document readability and comprehension."/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
 </OfficeApp>
