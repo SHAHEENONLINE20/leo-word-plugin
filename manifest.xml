@@ -12,7 +12,9 @@
   <DisplayName DefaultValue="LEO - Learning Engine Optimization"/>
   <Description DefaultValue="Analyze and rate enterprise documents based on ease of learning using NLP."/>
   <IconUrl DefaultValue="https://yourdomain.com/assets/icons/leo-64.png"/>
-  <SupportUrl DefaultValue="https://yourdomain.com/support"/>
+  <SupportUrl DefaultValue="https://shaheenonline20.github.io/leo-word-plugin/" />
+  <PrivacyUrl DefaultValue="https://shaheenonline20.github.io/leo-word-plugin/privacy.html" />
+  <TermsOfUseUrl DefaultValue="https://shaheenonline20.github.io/leo-word-plugin/terms.html" />
   
   <Hosts>
     <Host Name="Document"/>
